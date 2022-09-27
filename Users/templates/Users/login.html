@@ -1,0 +1,26 @@
+{% extends "Users/padre.html" %}
+
+{% load static %}
+
+{% block titulo_de_pagina %}
+<div class="fh5co-overlay"></div>
+<div class="fh5co-cover-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-push-6 col-md-6 full-height js-full-height">
+                <div class="fh5co-cover-intro">
+                    <h1 class="cover-text-lead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">shareblog</h1>
+                    <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
+                        {{ mensaje }}
+                        <form style= color:grey action="{% url 'login' %}"  method="POST"> {% csrf_token %}
+                            {{ form.as_p }}
+                            <button style= color:black type="submit">Iniciar sesión</button>
+                        </form>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>	
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "Users/padre.html" %}
+
+{% load static %}
+
+{% block titulo_de_pagina %}
+<div class="fh5co-overlay"></div>
+<div class="fh5co-cover-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-push-6 col-md-6 full-height js-full-height">
+                <div class="fh5co-cover-intro">
+                    <h1 class="cover-text-lead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Realizar una búsqueda</h1>
+                    <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
+                        {% block contenido_que_cambia %}
+                        <h4 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Búsqueda por nombre</h4>
+                        <form action="{% url 'buscar_usuario' %}" method="GET"> {% csrf_token %}
+                            <input style= color:black class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s" type="text" name="nombre" id="nombre">
+                            <input style= color:black class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s" type="submit" value="Buscar">
+                        </form>
+                        {% endblock %}
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>	
+</div>
+</div>
+{% endblock %}

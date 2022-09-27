@@ -1,0 +1,17 @@
+{% extends 'Users/padre.html' %}
+
+{% load static %}
+
+{% block titulo_que_cambia %}
+    {% for post in posts %}
+        <div class="post-block">
+            <h2 class="subtitle">{{ post.title }}</h2>
+
+            <small>Publicado el {{ post.date_added }}</small>
+
+            <p>{{ post.intro }}</p>
+
+            <a href="{% url 'publiciones_detalle' post.slug %}">Leer más</a>
+        </div>
+    {% endfor %}
+{% endblock %}
