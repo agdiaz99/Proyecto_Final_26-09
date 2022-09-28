@@ -31,4 +31,4 @@ class UserEditForm(UserCreationForm):
 
 
 class AvatarForm(forms.Form):
-    imagen= forms.ImageField(label="Seleccionar foto de perfil")
+    imagen= forms.ImageField(label="Seleccione una imagen")

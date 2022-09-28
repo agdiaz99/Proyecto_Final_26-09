@@ -15,8 +15,8 @@
                         <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">{{ mensaje }}</h2>
                         {% else %}
                         <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Se encontró:</h2>
-                        {% for usuario in usuarios %}
-                        <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">{{ usuario.apellido }}, {{ usuario.nombre }}</h2>
+                        {% for user in users %}
+                        <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">{{ user.apellido }}, {{ user.nombre }}</h2>
                         {% endfor %}
                         {% endif %}
                         {% endblock %}

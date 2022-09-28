@@ -26,11 +26,9 @@ def perfil(request, username=None):
 	current_user = request.user
 	if username and username != current_user.username:
 		user = User.objects.get(username=username)
-		posts = user.posts.all()
 	else:
-		posts = current_user.posts.all()
 		user = current_user
-	return render(request, 'Users/perfil.html', {'user':user, 'posts':posts})
+	return render(request, "Users/perfil.html", {"user":user})
 
 
 @login_required(login_url=reverse_lazy("login"))
@@ -40,9 +38,9 @@ def buscar(request):
 
 @login_required(login_url=reverse_lazy("login"))
 def buscar_usuario(request):
-    if request.GET["nombre"]:
-        name=request.GET["nombre"]
-        datos=Post.objects.filter(nombre=name)
+    if request.GET["first_name"]:
+        name=request.GET["first_name"]
+        datos=User.objects.filter(nombre=name)
         if len(datos)!=0:
             return render(request, "Users/resultado_busqueda.html", {"usuarios":datos})
         else:
@@ -115,10 +113,10 @@ def añadir_avatar(request):
                 avatarViejo.delete()
             avatar=Avatar(user=request.user, imagen=formulario.cleaned_data["imagen"])
             avatar.save()
-            return render(request, 'Users/inicio.html', {"usuario":request.user, "mensaje":"¡Avatar agregado exitosamente!", "imagen":obtener_avatar(request)})
+            return render(request, 'Users/inicio.html', {"usuario":request.user, "mensaje":"¡Avatar agregado exitosamente!"})
     else:
         formulario=AvatarForm()
-    return render(request, 'Users/añadir_avatar.html', {"form":formulario, "usuario":request.user, "imagen":obtener_avatar(request)})
+    return render(request, 'Users/añadir_avatar.html', {"form":formulario, "usuario":request.user})
 
 
 # Función que trae la URL del avatar
@@ -128,5 +126,5 @@ def obtener_avatar(request):
     if len(lista)!=0:
         imagen=lista[0].imagen.url
     else:
-        imagen="Users/static/Users/images/perfil-default.png"
+        imagen="Users/static/Users/perfil-default.png"
     return imagen
