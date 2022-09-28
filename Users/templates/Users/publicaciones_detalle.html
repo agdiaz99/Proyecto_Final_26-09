@@ -3,26 +3,26 @@
 {% load static %}
 
 {% block titulo_que_cambia %}
-    <h1 class="title">{{ post.title }}</h1>
+    <h1 class="title">{{ post.titulo }}</h1>
 
-    <small>Publicado el {{ post.date_added }}</small>
+    <small>Publicado el {{ post.fecha }}</small>
 
     <p><strong>{{ post.intro }}</strong></p>
 
-    <p>{{ post.body }}</p>
+    <p>{{ post.cuerpo }}</p>
 
     <hr>
     
     <h2 class="subtitle">Comentarios</h2>
 
-    {% for comment in post.comments.all %}
+    {% for comentario in post.comentarios.all %}
         <article class="media">
             <div class="media-content">
                 <div class="content">
                     <p>
-                        <strong>{{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
+                        <strong>{{ comentario.nombre }}</strong> <small>{{ comentario.fecha }}</small>
                         <br>
-                        {{ comment.body }}
+                        {{ comentario.cuerpo }}
                     </p>
                 </div>
             </div>

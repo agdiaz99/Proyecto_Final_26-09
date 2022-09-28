@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
-from .forms import CommentForm
+from .forms import ComentarioForm
 from django.urls import reverse_lazy
 
 #Imports para login
@@ -19,16 +19,16 @@ def publicaciones(request):
 def publicaciones_detalle(request, slug):
     post = Post.objects.get(slug=slug)
     
-    if request.method=='POST':
-        form = CommentForm(request.POST)
+    if request.method=="POST":
+        form = ComentarioForm(request.POST)
 
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
 
-            return redirect('publicaciones_detalle', slug=post.slug)
+            return redirect("publicaciones_detalle", slug=post.slug)
     else:
-        form = CommentForm()
+        form = ComentarioForm()
 
-    return render(request, 'Users/publicaciones_detalle.html.', {'post': post, 'form': form})
+    return render(request, "Users/publicaciones_detalle.html", {"post":post, "form":form})

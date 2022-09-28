@@ -38,8 +38,8 @@ def buscar(request):
 
 @login_required(login_url=reverse_lazy("login"))
 def buscar_usuario(request):
-    if request.GET["first_name"]:
-        name=request.GET["first_name"]
+    if request.get_full_name():
+        name=request.get_full_name()
         datos=User.objects.filter(nombre=name)
         if len(datos)!=0:
             return render(request, "Users/resultado_busqueda.html", {"usuarios":datos})
