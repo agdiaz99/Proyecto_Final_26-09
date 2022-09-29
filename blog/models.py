@@ -1,13 +1,13 @@
 from django.db import models
-
+from django.utils.timezone import now
 # Create your models here.
 
 class Post(models.Model):
-	titulo = models.CharField(max_length=255)
+	titulo = models.CharField(max_length=30)
 	slug = models.SlugField()
-	intro = models.TextField()
-	cuerpo = models.TextField()
-	fecha = models.DateTimeField(auto_now_add=True)
+	intro = models.CharField(max_length=30)
+	cuerpo = models.CharField(max_length=255)
+	fecha = models.DateTimeField(default=now)
 
 	class Meta:
 		ordering = ['-fecha']

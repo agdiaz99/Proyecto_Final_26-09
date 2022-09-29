@@ -9,7 +9,7 @@
                 <div class="fh5co-cover-intro">
                     <h1 class="cover-text-lead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">¿Qué ocurre <em>{{ user.username }}</em>? 🤔</h1>
                     <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
-						<form style= color:black method="post">
+						<form style= color:gray method="post">
 							{% csrf_token %}
 							{{ form.as_p }}
 							<button style= color:black type="submit" class="post" id="" >Publicar</button>
