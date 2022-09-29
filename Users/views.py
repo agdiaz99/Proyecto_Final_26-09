@@ -37,10 +37,10 @@ def buscar(request):
 
 
 @login_required(login_url=reverse_lazy("login"))
-def buscar_usuario(request):
+def buscar_blog(request):
     if request.GET["titulo"]:
-        nombre=request.GET["titulo"]
-        posts=Post.objects.filter(titulo=nombre)
+        name=request.GET["titulo"]
+        posts=Post.objects.filter(nombre=name)
         if len(posts)!=0:
             return render(request, "Users/resultado_busqueda.html", {"posts":posts})
         else:

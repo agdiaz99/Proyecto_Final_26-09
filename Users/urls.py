@@ -10,7 +10,7 @@ urlpatterns = [
     path('perfil/<str:username>/', perfil, name='perfil'),
 
     path('buscar/', buscar, name="buscar"),
-    path('buscar_usuario/', buscar_usuario, name="buscar_usuario"),
+    path('buscar_blog/', buscar_blog, name="buscar_blog"),
 
     path('register/', register, name='register'),
     path('login/', login_request, name='login'),
