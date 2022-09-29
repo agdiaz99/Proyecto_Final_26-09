@@ -13,7 +13,7 @@
                     <h2 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
                         {% block contenido_que_cambia %}
                         <h4 class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">Búsqueda por título</h4>
-                        <form action="{% url 'buscar_usuario' %}" method="GET"> {% csrf_token %}
+                        <form action="{% url 'buscar' %}" method="GET"> {% csrf_token %}
                             <input style= color:black class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s" type="text" name="nombre" id="nombre">
                             <input style= color:black class="cover-text-sublead wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s" type="submit" value="Buscar">
                         </form>
